@@ -2,3 +2,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Airbnb Cereal App Book"),
+      url("./assets/fonts/AirbnbCerealBook.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Airbnb Cereal App Medium"),
+      url("./assets/fonts/AirbnbCerealMedium.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: bold;
+    src: local("Airbnb Cereal App Bold"),
+      url("./assets/fonts/AirbnbCerealBold.woff") format("woff");
+  }
+}
