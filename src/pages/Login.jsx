@@ -1,12 +1,16 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useHistory } from "react-router";
 import { BgLogin } from "../assets";
+import { UserContext } from "../context/UserContext";
 const Login = () => {
   const [role, setRole] = useState(0);
   const [showRole, setShowRole] = useState(0);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(0);
+  const { setUser } = useContext(UserContext);
+  const history = useHistory();
 
   const handleRoleChange = (e) => {
     setRole(e ? e : 0);
@@ -35,16 +39,20 @@ const Login = () => {
       if (data.data.message === "Error") {
         setError(1);
       } else {
-        console.log(data.data);
         const { token } = data.data.data;
-        console.log(token);
+        setUser({
+          token,
+          level: data.data.data.level,
+        });
+        localStorage.setItem("ponpestoken", token);
+        history.push("/");
       }
     }
   };
 
   return (
-    <div className="grid place-content-start grid-flow-col gap-0 auto-cols-auto place-items-start">
-      <div className="px-16 pt-16">
+    <div className="flex">
+      <div className="px-16 pt-16 w-100">
         <p className="text-4xl font-medium">Login to your account</p>
         <p className="whitespace-nowrap pt-2">
           Please enter your username and password to proceed
@@ -129,11 +137,10 @@ const Login = () => {
           Login
         </button>
       </div>
-      <img
-        className="object-cover object-left-top h-screen w-full"
-        src={BgLogin}
-        alt=""
-      />
+      <div
+        className="w-full h-screen bg-cover"
+        style={{ backgroundImage: `url(${BgLogin})` }}
+      ></div>
     </div>
   );
 };
