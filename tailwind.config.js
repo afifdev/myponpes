@@ -13,7 +13,7 @@ module.exports = {
         "8xl": "90rem",
       },
       fontFamily: {
-        cool: ["Cereal", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        cool: ["TTCommons", "Roboto", "Helvetica", "Arial", "sans-serif"],
       },
     },
   },
