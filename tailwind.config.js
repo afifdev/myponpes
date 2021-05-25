@@ -9,6 +9,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      maxWidth: {
+        "8xl": "90rem",
+      },
       fontFamily: {
         cool: ["Cereal", "Roboto", "Helvetica", "Arial", "sans-serif"],
       },
