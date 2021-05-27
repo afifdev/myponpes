@@ -52,7 +52,7 @@ const Login = () => {
     <div className="flex">
       <div className="px-16 pt-16 w-100">
         <p className="text-4xl font-medium">Login to your account</p>
-        <p className="whitespace-nowrap pt-2">
+        <p className="whitespace-nowrap text-lg pt-2">
           Please enter your username and password to proceed
         </p>
         <div className="py-8 space-y-4">
