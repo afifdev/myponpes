@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import { BgLogin } from "../assets";
 import { UserContext } from "../context/UserContext";
 const Login = () => {
-  const [role, setRole] = useState(0);
+  const [roleAdmin, setRoleAdmin] = useState(0);
   const [showRole, setShowRole] = useState(0);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +13,7 @@ const Login = () => {
   const history = useHistory();
 
   const handleRoleChange = (e) => {
-    setRole(e ? e : 0);
+    setRoleAdmin(e ? e : 0);
     setShowRole(!showRole);
   };
 
@@ -31,22 +31,20 @@ const Login = () => {
 
   const handleLogin = async () => {
     setError(0);
-    if (role) {
-      const data = await axios.post("admin", {
-        username,
-        password,
+    const data = await axios.post(roleAdmin ? "admin" : "user", {
+      username,
+      password,
+    });
+    if (data.data.message === "Error") {
+      setError(1);
+    } else {
+      const { token } = data.data.data;
+      setUser({
+        token,
+        level: data.data.data.level,
       });
-      if (data.data.message === "Error") {
-        setError(1);
-      } else {
-        const { token } = data.data.data;
-        setUser({
-          token,
-          level: data.data.data.level,
-        });
-        localStorage.setItem("ponpestoken", token);
-        history.push("/");
-      }
+      localStorage.setItem("ponpestoken", token);
+      history.push("/");
     }
   };
 
@@ -93,7 +91,7 @@ const Login = () => {
             onClick={handleShowRole}
             className="py-1 px-4 rounded-md border-2 focus:border-red-500 outline-none focus:outline-none inline-flex items-center"
           >
-            {role ? "Admin" : "Santri"}
+            {roleAdmin ? "Admin" : "Santri"}
             <span className="pl-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +118,7 @@ const Login = () => {
               onClick={() => handleRoleChange(0)}
               className="py-1 px-4 rounded-md my-1 hover:text-white bg-gradient-to-r hover:from-red-500 hover:to-yellow-500 focus:outline-none"
             >
-              User
+              Santri
             </button>
             <button
               onClick={() => handleRoleChange(1)}
