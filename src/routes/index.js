@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import Login from "../pages/Login";
-import Admin from "../pages/Admin";
+import Home from "../pages/Home";
 
 const Routes = () => {
   const [user, setUser] = useState({ token: null, level: -1 });
@@ -13,9 +13,9 @@ const Routes = () => {
     const token = localStorage.getItem("ponpestoken");
     if (token) {
       const data = jwtDecode(token);
-      if (data.username && data.password && data.level) {
+      if (data.username && data.password && data.level > -1) {
         axios
-          .post(data.level > 1 ? "admin" : "user", {
+          .post(data.level < 2 ? "user" : "admin", {
             username: data.username,
             password: data.password,
           })
@@ -41,7 +41,7 @@ const Routes = () => {
         <Switch>
           {user.level > -1 ? (
             <Route exact path="/">
-              {user.level > 1 ? <Admin /> : <div>Homepage user</div>}
+              <Home />
             </Route>
           ) : (
             <Route exact path="/">
