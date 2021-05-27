@@ -35,21 +35,17 @@ const Profile = ({ show }) => {
     <div
       className={`${
         show ? "flex" : "hidden"
-      } lg:flex flex-col items-center py-10`}
+      } lg:flex flex-col items-center py-4`}
     >
       <img
         className="object-cover w-24 h-24 rounded-full ring ring-offset-4 ring-red-500"
         src={
-          user.level === 2 ? (
-            <AdminProfilePic />
-          ) : (
-            `http://localhost:4000/${img}`
-          )
+          user.level === 2 ? AdminProfilePic : `http://localhost:4000/${img}`
         }
         alt="profilepic"
       />
-      <p className="text-xl font-medium pt-4">{name}</p>
-      <p className="font-medium text-gray-400 leading-3 pb-2">{username}</p>
+      <p className="text-lg font-medium pt-4">{name}</p>
+      <p className="font-medium text-gray-400 leading-3">{username}</p>
     </div>
   );
 };
