@@ -40,13 +40,9 @@ const Routes = () => {
       <BrowserRouter>
         <Switch>
           {user.level > -1 ? (
-            <Route exact path="/">
-              <Home />
-            </Route>
+            <Route path="/" component={Home} />
           ) : (
-            <Route exact path="/">
-              <Login />
-            </Route>
+            <Route path="/" component={Login} />
           )}
           <Route path="*">
             <div>Not Found</div>
