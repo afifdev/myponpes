@@ -38,7 +38,7 @@ const Profile = ({ show }) => {
       } lg:flex flex-col items-center py-4`}
     >
       <img
-        className="object-cover w-24 h-24 rounded-full ring ring-offset-4 ring-red-500"
+        className="object-cover w-24 h-24 rounded-full ring-1 ring-offset-4 ring-red-500"
         src={
           user.level === 2 ? AdminProfilePic : `http://localhost:4000/${img}`
         }
