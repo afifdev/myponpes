@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        "8xl": "90rem",
+        "8xl": "100rem",
       },
       fontFamily: {
         cool: ["TTCommons", "Roboto", "Helvetica", "Arial", "sans-serif"],
