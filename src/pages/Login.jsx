@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { useHistory } from "react-router";
-import { BgLogin } from "../assets";
+import { BgLogin } from "../assets/images";
 import { UserContext } from "../context/UserContext";
 const Login = () => {
   const [roleAdmin, setRoleAdmin] = useState(0);

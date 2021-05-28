@@ -1,8 +1,11 @@
-import { useContext, useState } from "react";
+import { lazy, useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { LogoutSVG } from "../assets/icons";
 import { UserContext } from "../context/UserContext";
-import { Header, Profile, AdminNav, SantriNav } from "./moleculs";
+const Header = lazy(() => import("./moleculs/Header"));
+const Profile = lazy(() => import("./moleculs/Profile"));
+const AdminNav = lazy(() => import("./moleculs/AdminNav"));
+const SantriNav = lazy(() => import("./moleculs/SantriNav"));
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
