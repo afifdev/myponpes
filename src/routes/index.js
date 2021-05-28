@@ -1,10 +1,10 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import Login from "../pages/Login";
-import Home from "../pages/Home";
+const Login = lazy(() => import("../pages/Login"));
+const Home = lazy(() => import("../pages/Home"));
 
 const Routes = () => {
   const [user, setUser] = useState({ token: null, level: -1 });
@@ -40,9 +40,13 @@ const Routes = () => {
       <BrowserRouter>
         <Switch>
           {user.level > -1 ? (
-            <Route path="/" component={Home} />
+            <Suspense fallback={<div>Loading ... </div>}>
+              <Route path="/" component={Home} />
+            </Suspense>
           ) : (
-            <Route path="/" component={Login} />
+            <Suspense fallback={<div>Loading ... </div>}>
+              <Route path="/" component={Login} />
+            </Suspense>
           )}
           <Route path="*">
             <div>Not Found</div>
