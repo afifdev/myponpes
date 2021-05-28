@@ -1,4 +1,4 @@
-const Home = () => {
+const AdminHome = () => {
   return (
     <div className="grid grid-cols-3 gap-6">
       <div className="flex flex-col justify-between items-start bg-gray-200 rounded-lg p-4">
@@ -62,4 +62,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AdminHome;

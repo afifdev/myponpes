@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { Route, Switch } from "react-router";
 import Navbar from "../components/Navbar";
-const AdminHome = lazy(() => import("./admin/Home"));
+const AdminHome = lazy(() => import("./admin/AdminHome"));
 const Transactions = lazy(() => import("./admin/Transactions"));
 
 const Home = () => {
