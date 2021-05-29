@@ -1,11 +1,11 @@
 import { lazy, useContext, useState } from "react";
 import { useHistory } from "react-router";
-import { LogoutSVG } from "../assets/icons";
-import { UserContext } from "../context/UserContext";
-const Header = lazy(() => import("./moleculs/Header"));
-const Profile = lazy(() => import("./moleculs/Profile"));
-const AdminNav = lazy(() => import("./moleculs/AdminNav"));
-const SantriNav = lazy(() => import("./moleculs/SantriNav"));
+import { LogoutSVG } from "../../../assets/icons";
+import { UserContext } from "../../../context/UserContext";
+const Header = lazy(() => import("./Header"));
+const Profile = lazy(() => import("./Profile"));
+const AdminNav = lazy(() => import("./AdminNav"));
+const SantriNav = lazy(() => import("./SantriNav"));
 
 const Navbar = () => {
   const [show, setShow] = useState(false);

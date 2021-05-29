@@ -1,4 +1,4 @@
-import { BrandSVG, HamburgerSVG } from "../../assets/icons";
+import { BrandSVG, HamburgerSVG } from "../../../assets/icons";
 const Header = ({ action }) => {
   return (
     <div className="flex items-center">

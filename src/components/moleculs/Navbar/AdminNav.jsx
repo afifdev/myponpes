@@ -1,14 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import {
-  AnalyticsSVG,
-  GallerySVG,
-  HomeSVG,
-  SettingsSVG,
+  SantriSVG,
   TransactionsSVG,
-} from "../../assets/icons";
+  SettingsSVG,
+  HomeSVG,
+} from "../../../assets/icons";
 
-const SantriNav = () => {
+const AdminNav = () => {
   const { pathname } = useLocation();
+
   return (
     <>
       <Link
@@ -19,17 +19,6 @@ const SantriNav = () => {
       >
         <HomeSVG />
         <p className="cursor-pointer flex-grow pt-1 pl-2">Home</p>
-      </Link>
-      <Link
-        to="/analytics"
-        className={`flex items-center my-6 ${
-          pathname.includes("analytics")
-            ? "text-red-500 lg:border-r-2 lg:border-red-500"
-            : ""
-        }`}
-      >
-        <AnalyticsSVG />
-        <p className="cursor-pointer flex-grow pt-1 pl-2">Analytics</p>
       </Link>
       <Link
         to="/transactions"
@@ -43,15 +32,15 @@ const SantriNav = () => {
         <p className="cursor-pointer flex-grow pt-1 pl-2">Transactions</p>
       </Link>
       <Link
-        to="/gallery"
+        to="/santri"
         className={`flex items-center my-6 ${
-          pathname === "gallery"
+          pathname.includes("santri")
             ? "text-red-500 lg:border-r-2 lg:border-red-500"
             : ""
         }`}
       >
-        <GallerySVG />
-        <p className="cursor-pointer flex-grow pt-1 pl-2">Gallery</p>
+        <SantriSVG />
+        <p className="cursor-pointer flex-grow pt-1 pl-2">Santri</p>
       </Link>
       <Link
         to="/settings"
@@ -68,4 +57,4 @@ const SantriNav = () => {
   );
 };
 
-export default SantriNav;
+export default AdminNav;

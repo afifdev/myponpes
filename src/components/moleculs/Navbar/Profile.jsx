@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { AdminProfilePic } from "../../assets/images";
-import { UserContext } from "../../context/UserContext";
+import { AdminProfilePic } from "../../../assets/images";
+import { UserContext } from "../../../context/UserContext";
 
 const Profile = ({ show }) => {
   const { user } = useContext(UserContext);
