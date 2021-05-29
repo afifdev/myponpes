@@ -12,6 +12,9 @@ module.exports = {
       maxWidth: {
         "8xl": "100rem",
       },
+      height: {
+        "8xl": "48rem",
+      },
       fontFamily: {
         cool: ["TTCommons", "Roboto", "Helvetica", "Arial", "sans-serif"],
       },
